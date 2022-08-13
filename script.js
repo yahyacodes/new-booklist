@@ -77,11 +77,11 @@ class Store {
 
     books.forEach((book, index) => {
       if (book.isbn === isbn) {
-        books.splice(index, 1);
+        book.splice(index, 1);
       }
     });
 
-    localStorage.setItem('books', JSON.stringify(books));
+    localStorage.removeItem('books', JSON.stringify(books));
   }
 }
 
@@ -114,5 +114,5 @@ document.querySelector('#book-list').addEventListener('click', function (e) {
 
   UI.showAlert('Book Removed!!!', 'success');
 
-  Store.removeBook(Book);
+  Store.removeBook(isbn);
 });
